@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Necoclí</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Portal Necoclí Cluster Turismo</h1>
+        <div class="error-message" id="errorMessage"></div>
+
+        <!-- Información del proveedor -->
+        <div class="form-group">
+            <label>Nombre del Proyecto:</label>
+            <input type="text" value="Portal Necoclí" readonly>
+        </div>
+        <div class="form-group">
+            <label>Dirección:</label>
+            <input type="text" value="Necoclí" readonly>
+        </div>
+        <div class="form-group">
+            <label>Teléfono:</label>
+            <input type="text" value="3044554311" readonly>
+        </div>
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" value="portalnecocli@gmail.com" readonly>
+        </div>
+
+        <!-- Datos del cliente -->
+        <h3>Datos del Cliente</h3>
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" id="customerName" placeholder="Nombre del cliente">
+        </div>
+        <div class="form-group">
+            <label>RUT:</label>
+            <input type="text" id="customerRUT" placeholder="RUT del cliente">
+        </div>
+        <div class="form-group">
+            <label>Dirección:</label>
+            <input type="text" id="customerAddress" placeholder="Dirección del cliente">
+        </div>
+        <div class="form-group">
+            <label>Teléfono:</label>
+            <input type="text" id="customerPhone" placeholder="Teléfono del cliente">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="customerEmail" placeholder="Email del cliente">
+        </div>
+
+        <!-- Detalles de la compra -->
+        <h3>Detalles de la Compra</h3>
+        <div class="form-group">
+            <label>Servicio:</label>
+            <select id="service">
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option value="120000">Alquiler Solución- $120,000</option>
+                <option value="750000">Catálogo QR- $750,000</option>
+                <option value="1950000">Solución Básica Venta - $1,950,000</option>
+                <option value="1200000">Solución Web Básica - $1,200,000</option>
+                <option value="7100000">AppWeb Básica - $7,100,000</option>
+                <option value="100000">Coclí 1 pub $100,000</option>
+                <option value="300000">Manglar 6 pub - $300,000</option>
+                <option value="500000">Galeón 12 pub $500,000</option>
+                <option value="450000">Destacada inicio mes PN- $450,000</option>
+                <option value="720000">Destacada inicio año PN- $720,000</option>
+                <option value="10720000">Desarrollo a medida- $10,720,000</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Cantidad:</label>
+            <input type="number" id="quantity" min="1" placeholder="Cantidad">
+        </div>
+        <button onclick="addToInvoice()">Agregar al Pedido</button>
+
+        <table class="table" id="invoiceTable">
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="total" id="totalAmount">Total: $0</div>
+
+        <button onclick="generatePDF()">Generar Factura</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
